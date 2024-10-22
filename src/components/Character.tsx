@@ -1,17 +1,8 @@
 import { characters } from "../data/characters";
-import { useStore } from "../stores/useAppstore";
-import { useEffect } from "react";
+import { useAppStore } from "../stores/useAppstore";
 
 export default function Character() {
-  const { fecthData, offset, setCharacter, character } = useStore();
-
-  useEffect(() => {
-    console.log(offset);
-  }, [offset]);
-
-  useEffect(() => {
-    console.log(character);
-  }, [character]);
+  const { fecthData, setCharacter } = useAppStore();
 
   const handleCharacter = (off: number, char: string) => {
     setCharacter(char);
@@ -19,21 +10,21 @@ export default function Character() {
   };
 
   return (
-    <div className="bg-slate-900  lg:border-r-2 border-red-700">
-      <h2 className="p-3 text-white bg-slate-900 text-center text-xl uppercase border-b-2  border-red-700">
-        personajes
+    <div className="bg-slate-950  lg:border-r-4 border-slate-950">
+      <h2 className="p-3 text-white lg:bg-slate-800 text-center text-xl uppercase border-b-4  border-slate-950">
+        principales
       </h2>
-      <div className="py-4 px-1 flex justify-center lg:w-[180px]  lg:py-6">
-        <div className="flex gap-4 overflow-x-scroll md:overflow-hidden lg:flex-col">
+      <div className="  flex justify-center pb-4 lg:py-0 ">
+        <div className="flex gap-4 lg:gap-0 overflow-x-scroll md:overflow-hidden lg:flex-col">
           {characters.map((character) => {
             return (
               <button
                 key={character.id}
-                className=" border-2 hover:border-red-800"
+                className=" hover:border-red-800"
                 onClick={() => handleCharacter(0, character.id.toString())}
               >
                 <div
-                  className=" border-white p-16 bg-slate-400 bg-cover bg-center"
+                  className=" border-white p-24 bg-slate-400 bg-cover bg-center"
                   style={{ backgroundImage: `url(${character.img})` }}
                 ></div>
                 <h1 className="text-white p-1 bg-black">{character.name}</h1>

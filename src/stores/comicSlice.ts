@@ -1,25 +1,41 @@
 import { StateCreator } from "zustand";
-import { MarvelType } from "../schemas/MarvelSchema";
+import { MarvelType } from "../types/MarvelSchema";
 import { fetchMarvel } from "../services/MarvelService";
 
 export type comicSliceType = {
   MarvelData: MarvelType;
   loading: boolean;
   offset: number;
-  character: string;
+  characterComic: string;
   fecthData: (offset: number, character: string) => Promise<void>;
   fecthPrev: (offset: number, character: string) => Promise<void>;
   setCharacter: (character: string) => void;
 };
 
+const initial = {
+  count: 0,
+  limit: 10,
+  offset: 0,
+  results: [
+    {
+      id: 0,
+      title: "",
+      thumbnail: {
+        extension: "",
+        path: "",
+      },
+    },
+  ],
+};
+
 export const createComicSlice: StateCreator<comicSliceType> = (set) => ({
-  MarvelData: {} as MarvelType,
+  MarvelData: initial,
   loading: false,
   offset: 0,
-  character: "",
+  characterComic: "",
   setCharacter: (character) => {
     set(() => ({
-      character: character,
+      characterComic: character,
       offset: 0,
     }));
   },
@@ -32,7 +48,7 @@ export const createComicSlice: StateCreator<comicSliceType> = (set) => ({
       MarvelData: result,
       offset: result?.offset,
       loading: false,
-      character: character,
+      characterComic: character,
     }));
   },
   fecthPrev: async (offset, character) => {

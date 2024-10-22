@@ -3,20 +3,26 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <>
-      <header className=" items-center flex justify-center p-2 bg-slate-950">
-        <img className="h-14" src="/Marvel-logo.png" />
+      <header className=" items-center flex p-2  border-b-4 border-slate-950 bg-slate-800 ">
+        <img className="h-14 " src="/Marvel-logo.png" />
         <h1 className="p-4  text-white font-bold text-xl uppercase">
-          Zustand store on Marvel API and zod schema validation
+          MARVEL DATABASE
         </h1>
       </header>
-      <nav className="bg-red-800 text-white flex justify-center  border-b-2 border-white">
-        <NavLink className="hover:bg-slate-900 py-2 px-10" to={"/"}>
+      <nav className="bg-slate-700 text-white text-xl flex justify-center  border-b-4 border-slate-950">
+        <NavLink className="hover:bg-red-800 py-2 w-32 text-center" to={"/"}>
           inicio
         </NavLink>
-        <NavLink className="hover:bg-slate-900 py-2 px-10" to={"/comics"}>
+        <NavLink
+          className="hover:bg-red-800 py-2 w-32 text-center"
+          to={"/comics"}
+        >
           comics
         </NavLink>
-        <NavLink className="hover:bg-slate-900 py-2 px-10" to={"/characters"}>
+        <NavLink
+          className="hover:bg-red-800 py-2 w-32 text-center"
+          to={"/characters"}
+        >
           personajes
         </NavLink>
       </nav>

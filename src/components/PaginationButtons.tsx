@@ -1,7 +1,7 @@
-import { useStore } from "../stores/useAppstore";
+import { useAppStore } from "../stores/useAppstore";
 
 export default function PaginationButtons() {
-  const { fecthData, fecthPrev, offset, character } = useStore();
+  const { fecthData, fecthPrev, offset, characterComic } = useAppStore();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -11,11 +11,11 @@ export default function PaginationButtons() {
   };
 
   return (
-    <div className="bg-slate-900 p-4 text-white text-center space-x-4 border-t-2 border-red-700">
+    <div className="bg-slate-950 p-4 text-white text-center space-x-4 pb-10">
       <button
         className="bg-red-900 py-2 px-10 uppercase hover:bg-red-600"
         onClick={() => {
-          fecthPrev(offset, character);
+          fecthPrev(offset, characterComic);
           scrollToTop();
         }}
       >
@@ -24,7 +24,7 @@ export default function PaginationButtons() {
       <button
         className="bg-red-900 py-2 px-10 uppercase hover:bg-red-600"
         onClick={() => {
-          fecthData(offset, character);
+          fecthData(offset, characterComic);
           scrollToTop();
         }}
       >
