@@ -1,4 +1,4 @@
-import { useStore } from "../store";
+import { useStore } from "../stores/useAppstore";
 
 export default function PaginationButtons() {
   const { fecthData, fecthPrev, offset, character } = useStore();

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useStore } from "../store";
+import { useStore } from "../stores/useAppstore";
 import Card from "./Card";
 
 export default function MarvelComponent() {
@@ -11,7 +11,7 @@ export default function MarvelComponent() {
 
   return (
     <main className=" bg-slate-950 w-full">
-      <h1 className="p-3 text-white bg-slate-900 text-center text-xl uppercase border-b-2  border-red-700">
+      <h1 className="py-3 px-10 text-white bg-slate-900 text-xl uppercase border-b-2  border-red-700">
         {offset ? `Pagina  ${offset / 20}` : ""}
       </h1>
       <div className="bg-slate-950 p-4 flex gap-8 lg: flex-wrap justify-center">

@@ -1,5 +1,5 @@
 import { characters } from "../data/characters";
-import { useStore } from "../store";
+import { useStore } from "../stores/useAppstore";
 import { useEffect } from "react";
 
 export default function Character() {
@@ -19,7 +19,10 @@ export default function Character() {
   };
 
   return (
-    <div className="bg-slate-800  lg:border-r-2 border-red-700">
+    <div className="bg-slate-900  lg:border-r-2 border-red-700">
+      <h2 className="p-3 text-white bg-slate-900 text-center text-xl uppercase border-b-2  border-red-700">
+        personajes
+      </h2>
       <div className="py-4 px-1 flex justify-center lg:w-[180px]  lg:py-6">
         <div className="flex gap-4 overflow-x-scroll md:overflow-hidden lg:flex-col">
           {characters.map((character) => {
