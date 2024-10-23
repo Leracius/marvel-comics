@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useAppStore } from "../stores/useAppstore";
 import CharacterCard from "../components/CharacterCard";
+import CharactersSkeleton from "../components/CharactersSkeleton";
 
 export default function SearchCharacterPage() {
   const fetchCharacter = useAppStore((state) => state.fetchCarater);
@@ -29,8 +30,10 @@ export default function SearchCharacterPage() {
     fetchCharacter();
   }, []);
 
+  console.log(charLoading);
+
   return (
-    <div className="">
+    <div className="bg-slate-950">
       <section className="">
         <div className=" p-5 flex flex-col items-center justify-center">
           <input
@@ -42,19 +45,25 @@ export default function SearchCharacterPage() {
           />
         </div>
         {query && (
-          <h2 className="text-white p-1 text-center mx-auto border-b-4 border-slate-950 bg-slate-800">
-            Mostrando resultados con {query}
+          <h2 className="text-white text-xl p-1 text-center mx-auto  mb-4 bg-slate-800">
+            {!charLoading
+              ? "Mostrando resultados con: "
+              : "Buscando personajes con: "}
+
+            <span className="font-mono uppercase bg-red-500 text-white">
+              {query}
+            </span>
           </h2>
         )}
         {charLoading ? (
           <>
-            <h2 className="text-white text-center p-3 w-40 bg-slate-700 fixed bottom-0 ">
+            <h2 className="text-white text-center p-3 w-40 bg-slate-700 fixed z-40 bottom-0 ">
               Cargando...
             </h2>
-            <h2 className="text-white p-2 text-center">Vacio</h2>
+            <CharactersSkeleton />
           </>
         ) : (
-          <div className=" p-2 gap-2 flex justify-center flex-wrap ">
+          <div className=" p-2 gap-4 flex justify-center flex-wrap ">
             {characters.results.map((character) => {
               return <CharacterCard key={character.id} character={character} />;
             })}

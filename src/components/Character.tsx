@@ -10,11 +10,11 @@ export default function Character() {
   };
 
   return (
-    <div className="bg-slate-950  lg:border-r-4 border-slate-950">
-      <h2 className="p-3 text-white lg:bg-slate-800 text-center text-xl uppercase border-b-4  border-slate-950">
+    <div className="bg-slate-950">
+      <h2 className="p-3 text-white lg:bg-slate-800 text-center text-xl uppercase ">
         principales
       </h2>
-      <div className="  flex justify-center pb-4 lg:py-0 ">
+      <div className="  flex justify-center gap-2 lg:py-0 ">
         <div className="flex gap-4 lg:gap-0 overflow-x-scroll md:overflow-hidden lg:flex-col">
           {characters.map((character) => {
             return (
