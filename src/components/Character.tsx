@@ -11,11 +11,11 @@ export default function Character() {
 
   return (
     <div className="bg-slate-950">
-      <h2 className="p-3 text-white lg:bg-slate-800 text-center text-xl uppercase ">
+      <h2 className="p-3 text-white my-4 lg:my-0 bg-slate-800 text-center text-xl uppercase ">
         principales
       </h2>
       <div className="  flex justify-center gap-2 lg:py-0 ">
-        <div className="flex gap-4 lg:gap-0 overflow-x-scroll md:overflow-hidden lg:flex-col">
+        <div className="flex gap-4  overflow-x-scroll md:overflow-hidden lg:flex-col">
           {characters.map((character) => {
             return (
               <button
@@ -27,7 +27,9 @@ export default function Character() {
                   className=" border-white p-24 bg-slate-400 bg-cover bg-center"
                   style={{ backgroundImage: `url(${character.img})` }}
                 ></div>
-                <h1 className="text-white p-1 bg-black">{character.name}</h1>
+                <h1 className="text-white p-2 bg-slate-800">
+                  {character.name}
+                </h1>
               </button>
             );
           })}
